@@ -1,11 +1,15 @@
 ﻿{
-  "WELCOME_MESSAGE_LN_1": "Bongu, merħba fil-logħba Patience, magħmula minn Luke Vella!",
-  "WELCOME_MESSAGE_LN_2": "Din hija logħba ta 'pazjenza fejn il-ħiliet tiegħek se jiġu ttestjati.",
-  "WELCOME_MESSAGE_LN_3": "Il-għan huwa li tneħħi l-karti kollha mill-iskrin.",
-  "GENERIC_BUTTON_PRESS_TO_CONTINUE": "Agħfas buttuna biex tkompli...",
-  "GAME_START_MESSAGE": "Il-loghba bdied issa. Jekk joghgbok, dahhal l-ammont ta decks li tixtieq ddahhal fil loghba ta clock patience.",
-  "INPUT_INVALID_NUMBER_OF_DECKS": "Mhux suppost. Dahhal numru validu bhala l-ammont ta decks li ha tuza.",
-  "SEEDING_DECKS": "Il-loghba ha tibda b'{0} decks...",
-  "SEEDING_DECKS_COMPLETED": "Is-seeding gie komplut.",
-  "EXIT_PROMPT": "Agħfas buttuna biex toħroġ mil-logħoba..."
+  "WELCOME_MESSAGE_LN_1": "Welcome to Luke Vella's Clock Patience simulator! (Patent yet pending).",
+  "WELCOME_MESSAGE_LN_2": "The game is simple. Firstly, input the amount of decks you wish to play with.",
+  "WELCOME_MESSAGE_LN_3": "The simulator will then simulate the clock patience game with all of the decks you stipulated, and will output the results of each of your decks.",
+  "GENERIC_BUTTON_PRESS_TO_CONTINUE": "Press any key to continue...",
+  "GAME_START_MESSAGE": "A new game has now started. Please input the amount of decks you would like to seed into the clock patience game.",
+  "INPUT_INVALID_NUMBER_OF_DECKS": "Invalid entry. Please enter a valid number of decks.",
+  "SEEDING_DECKS": "Seeding game with {0} decks...",
+  "SEEDING_DECKS_COMPLETED": "Seeding completed.",
+  "SHOWING_ALL_DECKS_MESSAGE_1": "You will now be shown all decks arranged in four lines of 13 cards, cards separated by a single blank.",
+  "SHOWING_ALL_DECKS_MESSAGE_2": "If you are unhappy with the way the decks are arranged, type 'reshuffle' followed by the deck you wish to reshuffle.",
+  "SEEDED_DECKS_MESSAGE": "Seeded decks:",
+  "EXIT_PROMPT": "Press any key to exit."
+
 }

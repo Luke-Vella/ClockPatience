@@ -12,7 +12,7 @@ namespace ClockPatience.Core.Entities
         public Deck()
         {
             Id = Guid.NewGuid();
-            Cards = new List<Card>();
+            Cards = [];
         }
 
         public Guid Id { get; set; }

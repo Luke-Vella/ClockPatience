@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClockPatience.Core.Resources
+namespace ClockPatience.Core.Helpers
 {
     public static class CardHelper
     {

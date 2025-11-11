@@ -10,4 +10,8 @@
     <Folder Include="Managers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClockPatience.Infrastructure\ClockPatience.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

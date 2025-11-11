@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.Localization
+﻿namespace ClockPatience.ConsoleApp.Localisation
 {
     public interface ILocalizationProvider
     {

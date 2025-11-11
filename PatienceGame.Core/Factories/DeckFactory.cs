@@ -1,13 +1,8 @@
 ﻿using ClockPatience.Core.Entities;
-using ClockPatience.Core.Resources;
+using ClockPatience.Core.Helpers;
 using PatienceGame.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PatienceGame.Factories
+namespace ClockPatience.Core.Factories
 {
     /// <summary>
     /// Factory class for instantiating decks of cards.
