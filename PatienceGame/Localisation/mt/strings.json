@@ -1,0 +1,11 @@
+﻿// Dev note: 
+// All localisation options are currently not proofread and have been automatically generated with AI tools. Kindly remove this comment should documentation team liaise with suitable translators.
+// Apologies for any butchering of these beautiful languages. I am sure they deserve better.
+
+{
+  "WELCOME_MESSAGE_LN_1": "Bongu, merħba fil-logħba Patience, magħmula minn Luke Vella!",
+  "WELCOME_MESSAGE_LN_2": "Din hija logħba ta 'pazjenza fejn il-ħiliet tiegħek se jiġu ttestjati.",
+  "WELCOME_MESSAGE_LN_3": "Il-għan huwa li tneħħi l-karti kollha mill-iskrin.",
+  "WELCOME_MESSAGE_LN_4": "Bħala introduzzjoni, ejja nibdew bil-karta l-ewwel.",
+  "EXIT_PROMPT": "Agħfas buttuna biex toħroġ mil-logħoba..."
+}
