@@ -7,9 +7,13 @@ namespace ConsoleApp.Localization
     {
         private readonly Dictionary<string, string> _strings;
 
+
         public JsonLocalizationProvider(Language language)
         {
-            // Firstly, we're loading 
+            /* Dev note: All localisation options are currently not proofread and have been automatically generated with AI tools.
+            * Kindly remove this comment should documentation team liaise with suitable translators.
+            * Apologies for any butchering of these beautiful languages. I am sure they deserve better. */
+
             string langFolder;
             switch(language)
             {

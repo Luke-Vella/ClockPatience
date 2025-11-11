@@ -1,11 +1,11 @@
-﻿// Dev note: 
-// All localisation options are currently not proofread and have been automatically generated with AI tools. Kindly remove this comment should documentation team liaise with suitable translators.
-// Apologies for any butchering of these beautiful languages. I am sure they deserve better.
-
-{
+﻿{
   "WELCOME_MESSAGE_LN_1": "Welcome to Luke Vella's Clock Patience simulator! (Patent yet pending).",
   "WELCOME_MESSAGE_LN_2": "The game is simple. Firstly, input the amount of decks you wish to play with.",
   "WELCOME_MESSAGE_LN_3": "The simulator will then simulate the clock patience game, and output how each of your decks went.",
-  "WELCOME_MESSAGE_LN_4": "Press any key to continue...",
+  "GENERIC_BUTTON_PRESS_TO_CONTINUE": "Press any key to continue...",
+  "GAME_START_MESSAGE": "Game has now started. Please input the amount of decks you would like to seed into the clock patience game.",
+  "INPUT_INVALID_NUMBER_OF_DECKS": "Invalid entry. Please enter a valid number of decks.",
+  "SEEDING_DECKS": "Seeding game with {0} decks...",
+  "SEEDING_DECKS_COMPLETED": "Seeding completed.",
   "EXIT_PROMPT": "Press any key to exit."
 }
