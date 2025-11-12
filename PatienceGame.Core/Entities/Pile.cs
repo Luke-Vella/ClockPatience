@@ -16,6 +16,7 @@ namespace ClockPatience.Domain.Entities
         {
             Id = Guid.NewGuid();
             AcceptedRank = acceptedRank;
+            Cards = [];
         }
 
         public Guid Id { get; set; }
@@ -29,6 +30,8 @@ namespace ClockPatience.Domain.Entities
 
         public void AddCardToBottomOfPile(Card card)
         {
+            card.IsFaceUp = true;
+
             Cards.Insert(0, card);
         }
 

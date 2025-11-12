@@ -1,7 +1,6 @@
 ﻿using ClockPatience.Application.Services;
 using ClockPatience.Domain.Factories;
 using ClockPatience.Domain.Interfaces;
-using ClockPatience.Domain.Services;
 using ClockPatience.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,7 +25,6 @@ namespace ClockPatience.ConsoleApp
 
             // Register domain factories
             services.AddSingleton<DeckFactory>();
-            services.AddSingleton<GameSessionService>();
 
             // Register application services
             services.AddScoped<GameService>();

@@ -47,16 +47,25 @@ namespace ClockPatience.ConsoleApp
 
             GameConsoleUI.InformUserGameIsStarting(_loc);
 
-            List<DeckDTO>? seededDecks = _gameService.SeedDecks(GameConsoleUI.PromptUserToSeedDecks(_loc));
+            int? decksToSeed = GameConsoleUI.ReadUserSeeding(_loc);
 
-            GameConsoleUI.InformUserSeedingIsComplete(_loc);
-            GameConsoleUI.PrintGenericContinueMessageWithSpacing(_loc);
-
-            if (seededDecks != null)
+            List<DeckDTO> inputDecks;
+            if (decksToSeed.HasValue)
             {
-                foreach (DeckDTO deckDTO in seededDecks)
+                GameConsoleUI.InformUserSeedingIsComplete(_loc);
+                inputDecks = _gameService.SeedInput(decksToSeed.Value);
+            }
+            else
+            {
+                GameConsoleUI.InformUserAboutSampleDataChoice(_loc);
+                inputDecks = _gameService.SeedInput(0, true);
+            }
+
+            if (inputDecks != null)
+            {
+                foreach (DeckDTO deckDTO in inputDecks)
                 {
-                    GameConsoleUI.PrintDeckToTerminal(deckDTO);
+                    GameConsoleUI.PrintDeckToTerminal(deckDTO, !decksToSeed.HasValue);
                 }
             }
 
@@ -64,7 +73,14 @@ namespace ClockPatience.ConsoleApp
 
             List<Tuple<int, CardDTO>> results = _gameService.PlayGame();
 
-            GameConsoleUI.DisplayGameResultsToUser(results, _loc);
+            bool hasWon = GameConsoleUI.DisplayGameResultsToUser(results, _loc);
+
+            bool restart = GameConsoleUI.FarewellUser(_loc, hasWon);
+
+            if(restart)
+            {
+                StartGame();
+            }
         }
     }
 }

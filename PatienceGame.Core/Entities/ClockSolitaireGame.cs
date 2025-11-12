@@ -11,91 +11,67 @@ namespace ClockPatience.Domain.Entities
 {
     public class ClockSolitaireGame
     {
-        public ClockSolitaireGame() 
+        public ClockSolitaireGame(bool useCaseStudy = false) 
         { 
-            _deck = DeckFactory.CreateStandard();
-            _deck.Shuffle();
+            if(useCaseStudy)
+            {
+                _input = DeckFactory.CreateCaseStudyDeck();
+            }
+            else
+            {
+                _input = DeckFactory.CreateStandard();
+                _input.Shuffle();
+            }
+
             _clock = new SolitaireClock();
         }
 
-        private Deck _deck;
+        private Deck _input;
         private SolitaireClock _clock;
 
         public Guid Id { get; } = Guid.NewGuid();
 
-        public Deck Deck => _deck;
+        public Deck Input => _input;
 
-        public void Reset(Deck? seededDeck = null)
-        {
-            if(seededDeck == null)
-            {
-                _deck = DeckFactory.CreateStandard();
-                _deck.Shuffle();
-            }
-            else
-            {
-                _deck = seededDeck;
-            }
-
-            _clock = new SolitaireClock();
-        }
-
+        /// <summary>
+        /// Plays the Clock Solitaire game according to the rules.
+        /// </summary>
+        /// <returns>Results of the game</returns>
         public Tuple<int, Card> Play()
         {
-            // Deal all cards in the deck to the clock piles
-            Card? currentCard = _deck.DealCard();
-            do
+            // First pile should always be king, as per the rules of the game
+            var currentPile = _clock.GetPileByRank(Rank.King);
+
+            // Deal first card
+            var currentCard = _input.DealFirstCard();
+            
+            // Metrics for game over condition
+            var lastPlayed = currentCard;
+            int moves = 0;
+
+            // While there are still cards left to be played and there isn't a pile with 4 cards which are already flipped over...
+            while (currentCard != null && currentPile.Cards.Count < 4)
             {
-                foreach (Pile pile in _clock.PileRanks)
-                {
-                    if (currentCard != null)
-                    {
-                        _deck.RemoveCard(currentCard);
-                        pile.AddCardToTopOfPile(currentCard);
+                lastPlayed = currentCard;
 
-                        currentCard = _deck.DealCard();
-                    }
-                }
-            } while (currentCard != null);
+                // Add a flipped over card to the bottom of the current pile.
+                currentPile.AddCardToBottomOfPile(currentCard);
 
+                // Assign the current pile to be the pile matching the rank of the current card.
+                currentPile = _clock.GetPileByRank(currentCard.Rank);
 
-            // Start trying to reorder the cards, starting with the first default pile (King)
-            Pile currentActivePile = _clock.GetPileByRank(Rank.King);
+                // Deal next card
+                var nextCard = _input.DealCard();
 
-            Card? currentPlayingCard = currentActivePile.RevealTopCard(); // Used to track the current card being played
-            Card lastPlayedCard = currentPlayingCard;
+                // Assign next card to be current card for next iteration.
+                currentCard = nextCard;
 
-            int numberOfMoves = 0;
-
-            do
-            {
-                currentActivePile = MoveCardToPile(_clock, currentPlayingCard, currentActivePile);
-
-                lastPlayedCard = currentPlayingCard;
-                numberOfMoves++;
-
-                currentPlayingCard = currentActivePile.RevealTopCard();
-            } while (currentPlayingCard != null);
-
-
-            // Game over - return the number of moves and the last played card
-            return new Tuple<int, Card>(numberOfMoves, lastPlayedCard);
-        }
-
-        private static Pile MoveCardToPile(SolitaireClock clock, Card currentPlayingCard, Pile currentActivePile)
-        {
-            foreach (Pile currentPile in clock.PileRanks)
-            {
-                if (currentPile.AcceptedRank == currentPlayingCard.Rank)
-                {
-                    currentPile.AddCardToBottomOfPile(currentPlayingCard);
-                    currentActivePile.RemoveTopCard();
-
-                    return currentPile;
-                }
+                // Increment moves.
+                moves++;
             }
 
-            return currentActivePile;
+            // Return moves played and last card played
+            return new Tuple<int, Card>(moves, lastPlayed);
         }
     }
 }

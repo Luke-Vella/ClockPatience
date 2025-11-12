@@ -6,9 +6,7 @@ namespace ClockPatience.Application.Interfaces
     {
         public void StartNewGame();
 
-        public List<DeckDTO> SeedDecks(int numberOfDecks);
-
-        public void StopGame();
+        public List<DeckDTO> SeedInput(int numberOfDecks, bool useCaseStudy = false);
 
         public List<Tuple<int, CardDTO>> PlayGame();
     }

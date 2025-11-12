@@ -31,6 +31,21 @@ namespace ClockPatience.Domain.Entities
             }
         }
 
+        public Card DealFirstCard()
+        {
+            if (_cards.Count == 0)
+            {
+                throw new InvalidOperationException("The deck is empty.");
+            }
+
+            Card cardToDeal = _cards[0];
+            cardToDeal.IsFaceUp = true;
+
+            RemoveCard(cardToDeal);
+
+            return _cards[0];
+        }
+
         public Card? DealCard()
         {
             if (_cards.Count == 0)
@@ -39,6 +54,7 @@ namespace ClockPatience.Domain.Entities
             }
 
             Card dealtCard = _cards[0];
+            RemoveCard(_cards[0]);
             
             return dealtCard;
         }

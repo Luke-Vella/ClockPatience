@@ -2,31 +2,44 @@
 using ClockPatience.Application.Interfaces;
 using ClockPatience.Domain.Entities;
 using ClockPatience.Domain.Interfaces;
-using ClockPatience.Domain.Services;
 
 namespace ClockPatience.Application.Services
 {
-    public class GameService(GameSessionService gameFactory, IGameRepository gameRepository) : IGameService
+    public class GameService(IGameRepository gameRepository) : IGameService
     {
-        private readonly GameSessionService _gameSessionService = gameFactory;
-        private readonly IGameRepository _gameRepository = gameRepository;
-
+        private List<ClockSolitaireGame> games = [];
 
         /// <summary>
         /// Starts a new game by resetting the number of decks and initializing the decks list.
         /// </summary>
-        public void StartNewGame()
+        public void StartNewGame() 
         {
-            _gameSessionService.StartNewSession();
+            games = [];
         }
 
         /// <summary>
         /// Takes in the number of decks to seed for the game.
         /// </summary>
         /// <param name="numberOfDecks">Number of decks to seed the current game session with</param>
-        public List<DeckDTO> SeedDecks(int numberOfDecks)
+        public List<DeckDTO> SeedInput(int numberOfDecks, bool useCaseStudy = false)
         {
-            List<Deck> decks = _gameSessionService.SeedGameInstances(numberOfDecks);
+            List<Deck> decks = [];
+            
+            if (useCaseStudy)
+            {
+                ClockSolitaireGame game = new(true);
+                decks.Add(game.Input);
+                games.Add(game);
+            }
+            else
+            {
+                for (int i = 0; i < numberOfDecks; i++)
+                {
+                    ClockSolitaireGame game = new();
+                    decks.Add(game.Input);
+                    games.Add(game);
+                }
+            }
 
             List<DeckDTO> deckDTOs = [];
             foreach (Deck deck in decks)
@@ -39,19 +52,16 @@ namespace ClockPatience.Application.Services
         }
 
         /// <summary>
-        /// Stops the current game.
-        /// </summary>
-        public void StopGame()
-        {
-            _gameSessionService.StopCurrentSession();
-        }
-
-        /// <summary>
         /// Determines the outcome of all decks seeded into the game session.
         /// </summary>
         public List<Tuple<int, CardDTO>> PlayGame()
         {
-            List<Tuple<int, Card>> results = _gameSessionService.PlayGame();
+            List< Tuple<int, Card> > results = [];
+            foreach (ClockSolitaireGame game in games)
+            {
+                Tuple<int, Card> result = game.Play();
+                results.Add(result);
+            }
 
             List<Tuple<int, CardDTO>> resultDTOs = [];
 

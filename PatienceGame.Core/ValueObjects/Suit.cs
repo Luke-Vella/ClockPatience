@@ -14,5 +14,17 @@ namespace ClockPatience.Domain.ValueObjects
         public static readonly Suit Spades = new("S", "Spades");
 
         public override string ToString() => Value;
+
+        public static Suit FromSymbol(string symbol)
+        {
+            return symbol switch
+            {
+                "H" => new Suit("H", "Hearts"),
+                "D" => new Suit("D", "Diamonds"),
+                "C" => new Suit("C", "Clubs"),
+                "S" => new Suit("S", "Spades"),
+                _ => throw new ArgumentException($"Invalid suit symbol: {symbol}")
+            };
+        }
     }
 }
