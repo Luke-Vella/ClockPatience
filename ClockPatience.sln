@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11205.157 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.ConsoleApp", "PatienceGame\ClockPatience.ConsoleApp.csproj", "{0B18ACDF-6B93-4799-86E7-9A96FF56A7B5}"
 EndProject
@@ -23,8 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Testing", "5. Testing", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Documentation", "6. Documentation", "{AE51E545-C970-4DA7-BCFF-7BFD774CE3A2}"
 	ProjectSection(SolutionItems) = preProject
-		Todo.txt = Todo.txt
-		..\..\..\Downloads\LayeredArchitectureDiagram.png = ..\..\..\Downloads\LayeredArchitectureDiagram.png
 		README.txt = README.txt
 	EndProjectSection
 EndProject
