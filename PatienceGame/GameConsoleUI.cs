@@ -204,7 +204,6 @@ namespace ClockPatience.ConsoleApp
         /// Prints the given deck to the terminal in a human-readable format.
         /// </summary>
         /// <param name="deckDTO">Deck to output</param>
-        /// <param name="loc">Localisation provider</param>
         public static void PrintDeckToTerminal(DeckDTO deckDTO, bool isSampleInput)
         {
             PrintSpacer(true, true);
@@ -253,6 +252,8 @@ namespace ClockPatience.ConsoleApp
         /// Utility method used to separate text content in the terminal.
         /// </summary>
         /// <param name="includeLineSeperator">Whether to include a line seperator in the terminal or not.</param>
+        /// <param name="includeEmptyLineBefore">Whether to include an empty line before the separator.</param>
+        /// <param name="includeEmptyLineAfter">Whether to include an empty line after the separator.</param>
         public static void PrintSpacer(bool includeLineSeperator = true, bool includeEmptyLineBefore = false, bool includeEmptyLineAfter = false)
         {
             if (includeEmptyLineBefore)

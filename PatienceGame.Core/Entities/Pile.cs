@@ -2,6 +2,9 @@
 
 namespace ClockPatience.Domain.Entities
 {
+    /// <summary>
+    /// Entity representing a pile of cards in Clock Solitaire.
+    /// </summary>
     public class Pile
     {
         public Pile() { }

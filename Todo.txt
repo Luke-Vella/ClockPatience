@@ -1,10 +1,11 @@
-- proper encapsulation in entities
-- unit test library
 DONE - finish clock patience game implementation
 DONE - spruce up UI project
-- add documentation
 DONE - reshuffle functionality
 DONE - Clean up unused references and code
 DONE - Check that sample input can be inputted
-- Flesh out repo usage
-- Localisation 
+- Ensure proper encapsulation and access modifiers in entities
+- Add documentation
+- Flesh out mock repo layer
+DONE - Flesh out mock unit test layer
+DONE - Localisation
+- Add error handling and logging

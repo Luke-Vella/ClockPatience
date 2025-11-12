@@ -1,5 +1,8 @@
 ﻿namespace ClockPatience.Domain.Entities
 {
+    /// <summary>
+    /// Entity representing a Deck of playing cards.
+    /// </summary>
     public class Deck
     {
         private readonly List<Card> _cards = [];

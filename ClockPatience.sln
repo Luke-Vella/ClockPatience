@@ -23,9 +23,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Testing", "5. Testing", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Documentation", "6. Documentation", "{AE51E545-C970-4DA7-BCFF-7BFD774CE3A2}"
 	ProjectSection(SolutionItems) = preProject
-		NotesFromDeveloper.txt = NotesFromDeveloper.txt
 		Todo.txt = Todo.txt
+		README.txt = README.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.UnitTests", "ClockPatience.UnitTests\ClockPatience.UnitTests.csproj", "{5C108A4C-DA99-474F-BC61-97BD6F35B158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{4FFD3534-2622-4A63-ADCF-62E84FE9F08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FFD3534-2622-4A63-ADCF-62E84FE9F08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FFD3534-2622-4A63-ADCF-62E84FE9F08F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C108A4C-DA99-474F-BC61-97BD6F35B158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C108A4C-DA99-474F-BC61-97BD6F35B158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C108A4C-DA99-474F-BC61-97BD6F35B158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C108A4C-DA99-474F-BC61-97BD6F35B158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{E7CCBFDE-7462-4607-8F7F-FE14CF13C5ED} = {ABA4241D-31A3-42C9-A2B2-06A1F259314E}
 		{70E8D401-A8A5-4B94-A0B3-BA5076D34CD9} = {E8A527D8-9A52-4331-A4EA-E4624C4DBCF9}
 		{4FFD3534-2622-4A63-ADCF-62E84FE9F08F} = {5E974A0A-27D8-4483-B818-8983A1BCD27D}
+		{5C108A4C-DA99-474F-BC61-97BD6F35B158} = {8F21ADD7-16D0-42A1-9AD1-86D2EDD240E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {764845A0-5E2B-4937-A46A-03680E015184}

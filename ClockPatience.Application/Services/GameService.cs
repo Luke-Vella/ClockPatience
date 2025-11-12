@@ -20,6 +20,7 @@ namespace ClockPatience.Application.Services
         /// Takes in the number of decks to seed for the game.
         /// </summary>
         /// <param name="numberOfDecks">Number of decks to seed the current game session with</param>
+        /// <returns>Deck as DTO</returns>
         public List<DeckDTO> SeedInput(int numberOfDecks)
         {
             List<Deck> decks = [];
@@ -34,6 +35,26 @@ namespace ClockPatience.Application.Services
             return MapDeckToDTO(decks);
         }
 
+        /// <summary>
+        /// Takes in a specific deck to seed for the game.
+        /// </summary>
+        /// <param name="deck">Deck to seed a game with</param>
+        /// <returns>Deck as DTO</returns>
+        public List<DeckDTO> SeedInput(Deck deck)
+        {
+            List<Deck> decks = [];
+
+            ClockSolitaireGame game = new(deck);
+            decks.Add(game.Input);
+            games.Add(game);
+
+            return MapDeckToDTO(decks);
+        }
+
+        /// <summary>
+        /// Seeds game with default case study deck.
+        /// </summary>
+        /// <returns>Deck DTO</returns>
         public List<DeckDTO> SeedInput()
         {
             List<Deck> decks = [];
@@ -74,6 +95,11 @@ namespace ClockPatience.Application.Services
             return resultDTOs;
         }
 
+        /// <summary>
+        /// Maps deck entity to deck DTO.
+        /// </summary>
+        /// <param name="decks">List of deck entities</param>
+        /// <returns>List of deck DTOs</returns>
         public static List<DeckDTO> MapDeckToDTO(List<Deck> decks)
         {
             List<DeckDTO> deckDTOs = [];

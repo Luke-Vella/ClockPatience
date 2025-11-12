@@ -58,5 +58,27 @@ namespace ClockPatience.Domain.Factories
         }
 
 
+        /// <summary>
+        /// Accepts a string of card codes (e.g. "AS 3H AH 5C ...") and creates a deck from them.
+        /// </summary>
+        /// <param name="codes">Card codes</param>
+        /// <returns>Finished Deck</returns>
+        public static Deck CreateFromCardCodes(string codes)
+        {
+            var cardCodes = codes.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
+            var cards = new List<Card>();
+            foreach (var code in cardCodes)
+            {
+                var rankChar = code[0];
+                var suitChar = code[1];
+                var rank = Rank.FromSymbol(rankChar.ToString());
+                var suit = Suit.FromSymbol(suitChar.ToString());
+                cards.Add(new Card(suit, rank));
+            }
+
+            return new Deck(cards);
+        }
+
+
     }
 }

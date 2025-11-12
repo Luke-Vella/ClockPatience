@@ -3,6 +3,9 @@ using ClockPatience.Domain.ValueObjects;
 
 namespace ClockPatience.Domain.Entities
 {
+    /// <summary>
+    /// Entity representing a game of Clock Solitaire.
+    /// </summary>
     public class ClockSolitaireGame
     {
         private readonly Deck _input;
@@ -20,6 +23,12 @@ namespace ClockPatience.Domain.Entities
                 _input.Shuffle();
             }
 
+            _clock = new SolitaireClock();
+        }
+
+        public ClockSolitaireGame(Deck inputDeck)
+        {
+            _input = inputDeck;
             _clock = new SolitaireClock();
         }
 
