@@ -274,6 +274,7 @@ namespace ClockPatience.ConsoleApp
         /// <returns>Whether the user won or not</returns>
         public static bool DisplayGameResultsToUser(List<Tuple<int, CardDTO>> results, ILocalizationProvider loc)
         {
+            Console.WriteLine();
             Console.WriteLine(loc.Get("GAME_RESULT_MESSAGE"));
             
             bool hasWon = false;
