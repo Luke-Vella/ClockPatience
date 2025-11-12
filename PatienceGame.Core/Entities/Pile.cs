@@ -37,12 +37,6 @@ namespace ClockPatience.Domain.Entities
             }
 
             Card cardToReveal = Cards[^1];
-
-            if(cardToReveal.IsFaceUp)
-            {
-                return null;
-            }
-
             cardToReveal.IsFaceUp = true;
 
             return cardToReveal;

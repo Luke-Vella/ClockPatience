@@ -39,30 +39,5 @@ namespace ClockPatience.Domain.ValueObjects
                 throw new InvalidOperationException($"No pile found for the rank: {acceptedRank}");
             }
         }
-
-        public IEnumerable<Pile> GetAllPiles()
-        {
-            return PileRanks;
-        }
-
-        public void Reset()
-        {
-            foreach (var pile in PileRanks)
-            {
-                pile.Cards.Clear();
-            }
-        }
-
-        public Card DealFirstCard()
-        {
-            return GetPileByRank(Rank.King).RevealTopCard();
-        }
-
-        public Card DealNextCard(Rank currentRank)
-        {
-            Pile currentPile = GetPileByRank(currentRank);
-            Card revealedCard = currentPile.RevealTopCard();
-            return revealedCard;
-        }
     }
 }

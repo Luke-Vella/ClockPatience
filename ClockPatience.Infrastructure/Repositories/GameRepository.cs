@@ -5,7 +5,7 @@ namespace ClockPatience.Infrastructure.Repositories
 {
     public class GameRepository : IGameRepository
     {
-        public void SaveGameResult(ClockSolitaireGame gameToSave)
+        public void SaveGameResult(List<Tuple<int, Card>> results)
         {
             // Flesh out with actual data persistence logic later
         }

@@ -5,6 +5,9 @@ namespace ClockPatience.Domain.Entities
 {
     public class ClockSolitaireGame
     {
+        private readonly Deck _input;
+        private readonly SolitaireClock _clock;
+
         public ClockSolitaireGame(bool useCaseStudy = false) 
         { 
             if(useCaseStudy)
@@ -20,11 +23,7 @@ namespace ClockPatience.Domain.Entities
             _clock = new SolitaireClock();
         }
 
-        private Deck _input;
-        private SolitaireClock _clock;
-
         public Guid Id { get; } = Guid.NewGuid();
-
         public Deck Input => _input;
 
         /// <summary>

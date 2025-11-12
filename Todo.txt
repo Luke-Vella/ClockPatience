@@ -5,6 +5,6 @@ DONE - spruce up UI project
 - add documentation
 DONE - reshuffle functionality
 DONE - Clean up unused references and code
-- Check that sample input can be inputted
+DONE - Check that sample input can be inputted
 - Flesh out repo usage
 - Localisation 

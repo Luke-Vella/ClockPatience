@@ -31,7 +31,7 @@ namespace ClockPatience.Application.Services
                 games.Add(game);
             }
 
-            return mapDeckToDTO(decks);
+            return MapDeckToDTO(decks);
         }
 
         public List<DeckDTO> SeedInput()
@@ -42,7 +42,7 @@ namespace ClockPatience.Application.Services
             decks.Add(game.Input);
             games.Add(game);
 
-            return mapDeckToDTO(decks);
+            return MapDeckToDTO(decks);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace ClockPatience.Application.Services
             return resultDTOs;
         }
 
-        public static List<DeckDTO> mapDeckToDTO(List<Deck> decks)
+        public static List<DeckDTO> MapDeckToDTO(List<Deck> decks)
         {
             List<DeckDTO> deckDTOs = [];
             foreach (Deck deck in decks)

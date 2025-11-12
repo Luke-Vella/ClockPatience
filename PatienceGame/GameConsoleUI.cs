@@ -313,7 +313,7 @@ namespace ClockPatience.ConsoleApp
             return hasWon;
         }
 
-        public static bool FarewellUser(ILocalizationProvider loc, bool hasWon)
+        public static bool AskUserToRestartGame(ILocalizationProvider loc)
         {
             PrintSpacer(false, true);
 
@@ -324,7 +324,7 @@ namespace ClockPatience.ConsoleApp
 
             string? userInput = Console.ReadLine();
 
-            if (userInput != null && userInput.ToLower() == "y")
+            if (userInput != null && userInput.Equals("y", StringComparison.CurrentCultureIgnoreCase))
             {
                 Console.Clear();
                 return true;

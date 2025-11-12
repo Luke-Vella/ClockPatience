@@ -1,8 +1,6 @@
-﻿// Simple terminal input scaffold for PatienceGame
-using ClockPatience.Application.DTOs;
+﻿using ClockPatience.Application.DTOs;
 using ClockPatience.Application.Services;
 using ClockPatience.ConsoleApp.Localisation;
-using ConsoleApp.Localization;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -55,7 +53,7 @@ namespace ClockPatience.ConsoleApp
             else
             {
                 GameConsoleUI.InformUserAboutSampleDataChoice(_loc);
-                inputDecks = _gameService.SeedInput(0, true);
+                inputDecks = _gameService.SeedInput();
             }
 
             if (inputDecks != null)
@@ -70,11 +68,9 @@ namespace ClockPatience.ConsoleApp
 
             List<Tuple<int, CardDTO>> results = _gameService.PlayGame();
 
-            bool hasWon = GameConsoleUI.DisplayGameResultsToUser(results, _loc);
+            GameConsoleUI.DisplayGameResultsToUser(results, _loc);
 
-            bool restart = GameConsoleUI.FarewellUser(_loc, hasWon);
-
-            if(restart)
+            if (GameConsoleUI.AskUserToRestartGame(_loc))
             {
                 StartGame();
             }

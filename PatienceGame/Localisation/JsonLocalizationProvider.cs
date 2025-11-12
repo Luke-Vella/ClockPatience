@@ -1,7 +1,6 @@
-﻿using ClockPatience.ConsoleApp.Localisation;
-using System.Text.Json;
+﻿using System.Text.Json;
 
-namespace ConsoleApp.Localization
+namespace ClockPatience.ConsoleApp.Localisation
 {
     public class JsonLocalizationProvider : ILocalizationProvider
     {
@@ -14,19 +13,12 @@ namespace ConsoleApp.Localization
             * Kindly remove this comment should documentation team liaise with suitable translators.
             * Apologies for any butchering of these beautiful languages. I am sure they deserve better. */
 
-            string langFolder;
-            switch(language)
+            string langFolder = language switch
             {
-                case Language.English:
-                    langFolder = "Localisation/en/strings.json";
-                    break;
-                case Language.Maltese:
-                    langFolder = "Localisation/mt/strings.json";
-                    break;
-                default:
-                    throw new ArgumentException("Unsupported language");
-            }
-
+                Language.English => "Localisation/en/strings.json",
+                Language.Maltese => "Localisation/mt/strings.json",
+                _ => throw new ArgumentException("Unsupported language"),
+            };
             var json = File.ReadAllText(langFolder);
             _strings = JsonSerializer.Deserialize<Dictionary<string, string>>(json)!;
         }
