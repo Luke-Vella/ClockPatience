@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClockPatience.Domain.ValueObjects;
 
 namespace PatienceGame.Entities
 {
@@ -11,12 +7,15 @@ namespace PatienceGame.Entities
     /// </summary>
     public class Card
     {
-        public Card() {}
+        public Card(Suit suit, Rank rank)
+        {
+            Suit = suit;
+            Rank = rank;
+            Name = $"{rank} of {suit}";
+        }
 
-        public int Id { get; set; }
-        public required string Suit { get; set; }
-        public required string Rank { get; set; }
-        public required string Name { get; set; }
-        public bool IsFaceUp { get; set; }
+        public Suit Suit { get; }
+        public Rank Rank { get; }
+        public string Name { get; }
     }
 }

@@ -7,9 +7,8 @@
   "INPUT_INVALID_NUMBER_OF_DECKS": "Invalid entry. Please enter a valid number of decks.",
   "SEEDING_DECKS": "Seeding game with {0} decks...",
   "SEEDING_DECKS_COMPLETED": "Seeding completed.",
-  "SHOWING_ALL_DECKS_MESSAGE_1": "You will now be shown all decks arranged in four lines of 13 cards, cards separated by a single blank.",
-  "SHOWING_ALL_DECKS_MESSAGE_2": "If you are unhappy with the way the decks are arranged, type 'reshuffle' followed by the deck you wish to reshuffle.",
+  "SHOWING_ALL_DECKS_MESSAGE": "You will now be shown all decks arranged in four lines of 13 cards, each card separated by a single blank space.",
+  "DECKS_ RESHUFFLE_INSTRUCTION": "If you are unhappy with the way the decks are arranged, type 'reshuffle' followed by the deck you wish to reshuffle (e.g. reshuffle 2). Otherwise, press enter to continue.",
   "SEEDED_DECKS_MESSAGE": "Seeded decks:",
   "EXIT_PROMPT": "Press any key to exit."
-
 }

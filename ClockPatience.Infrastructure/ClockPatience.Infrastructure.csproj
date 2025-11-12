@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PatienceGame.Core\ClockPatience.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

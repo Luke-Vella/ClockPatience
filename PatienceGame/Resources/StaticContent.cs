@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PatienceGame.Resources
+namespace ClockPatience.ConsoleApp.Resources
 {
     public static class StaticContent
     {

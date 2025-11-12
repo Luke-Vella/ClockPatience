@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PatienceGame.Core\ClockPatience.Core.csproj" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PatienceGame.Core\ClockPatience.Domain.csproj" />
   </ItemGroup>
 
 </Project>

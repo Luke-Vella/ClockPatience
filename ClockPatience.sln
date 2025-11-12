@@ -1,15 +1,30 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.ConsoleApp", "PatienceGame\ClockPatience.ConsoleApp.csproj", "{0B18ACDF-6B93-4799-86E7-9A96FF56A7B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.Core", "PatienceGame.Core\ClockPatience.Core.csproj", "{E7CCBFDE-7462-4607-8F7F-FE14CF13C5ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.Domain", "PatienceGame.Core\ClockPatience.Domain.csproj", "{E7CCBFDE-7462-4607-8F7F-FE14CF13C5ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.Application", "ClockPatience.Application\ClockPatience.Application.csproj", "{70E8D401-A8A5-4B94-A0B3-BA5076D34CD9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockPatience.Infrastructure", "ClockPatience.Infrastructure\ClockPatience.Infrastructure.csproj", "{4FFD3534-2622-4A63-ADCF-62E84FE9F08F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Application", "2. Application", "{E8A527D8-9A52-4331-A4EA-E4624C4DBCF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{ABA4241D-31A3-42C9-A2B2-06A1F259314E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{5E974A0A-27D8-4483-B818-8983A1BCD27D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Testing", "5. Testing", "{8F21ADD7-16D0-42A1-9AD1-86D2EDD240E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Documentation", "6. Documentation", "{AE51E545-C970-4DA7-BCFF-7BFD774CE3A2}"
+	ProjectSection(SolutionItems) = preProject
+		NotesFromDeveloper.txt = NotesFromDeveloper.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +51,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B18ACDF-6B93-4799-86E7-9A96FF56A7B5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E7CCBFDE-7462-4607-8F7F-FE14CF13C5ED} = {ABA4241D-31A3-42C9-A2B2-06A1F259314E}
+		{70E8D401-A8A5-4B94-A0B3-BA5076D34CD9} = {E8A527D8-9A52-4331-A4EA-E4624C4DBCF9}
+		{4FFD3534-2622-4A63-ADCF-62E84FE9F08F} = {5E974A0A-27D8-4483-B818-8983A1BCD27D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {764845A0-5E2B-4937-A46A-03680E015184}

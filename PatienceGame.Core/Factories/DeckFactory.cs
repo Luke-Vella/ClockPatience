@@ -1,62 +1,38 @@
-﻿using ClockPatience.Core.Entities;
-using ClockPatience.Core.Helpers;
+﻿using ClockPatience.Domain.Entities;
+using ClockPatience.Domain.ValueObjects;
 using PatienceGame.Entities;
 
-namespace ClockPatience.Core.Factories
+namespace ClockPatience.Domain.Factories
 {
     /// <summary>
     /// Factory class for instantiating decks of cards.
     /// </summary>
-    public static class DeckFactory
+    public class DeckFactory
     {
         /// <summary>
         /// Creates a full deck of cards with every possiblity accounted for.
         /// </summary>
         /// <returns>A full deck of cards, with optional jokers.</returns>
-        public static Deck CreateDeck(bool includeJoker = false)
+        public Deck CreateStandard(bool includeJokers = false)
         {
-            var deck = new Deck();
+            var cards = new List<Card>();
+            var suits = new[] { Suit.Hearts, Suit.Diamonds, Suit.Clubs, Suit.Spades };
+            var ranks = new[] { Rank.Ace, Rank.Two, Rank.Three, Rank.Four, Rank.Five, Rank.Six, Rank.Seven, Rank.Eight, Rank.Nine, Rank.Ten, Rank.Jack, Rank.Queen, Rank.King };
 
-            foreach (var suit in CardHelper.Suits)
+            foreach (var suit in suits)
+                foreach (var rank in ranks)
+                    cards.Add(new Card(suit, rank));
+
+            if (includeJokers)
             {
-                foreach (var rank in CardHelper.Ranks)
-                {
-                    var card = CreateCard(suit, rank);
-                    deck.Cards.Add(card);
-                }
+                cards.Add(new Card(new Suit("Joker"), new Rank("Joker")));
+                cards.Add(new Card(new Suit("Joker"), new Rank("Joker")));
             }
 
-            if(includeJoker)
-            {
-                var joker1 = CreateJoker();
-                var joker2 = CreateJoker();
-
-                deck.Cards.Add(joker1);
-                deck.Cards.Add(joker2);
-            }
+            var deck = new Deck(cards);
+            deck.Shuffle();
 
             return deck;
-        }
-
-        public static Card CreateCard(string suit, string rank)
-        {
-            var card = new Card
-            {
-                Suit = suit,
-                Rank = rank,
-                Name = $"{CardHelper.GetRankDescription(rank)} of {CardHelper.GetSuitName(suit)}"
-            };
-            return card;
-        }
-
-        public static Card CreateJoker()
-        {
-            return new Card
-            {
-                Suit = "Joker",
-                Rank = "Joker",
-                Name = "Joker"
-            };
         }
     }
 }
