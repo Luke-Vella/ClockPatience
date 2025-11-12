@@ -9,7 +9,7 @@ namespace ClockPatience.Domain.Interfaces
 {
     public interface IGameRepository
     {
-        void AddGame(Game currentGameSession);
-        void SaveGameResult(Game gameToSave);
+        void AddGame(ClockSolitaireGame currentGameSession);
+        void SaveGameResult(ClockSolitaireGame gameToSave);
     }
 }

@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Documentation", "6. Documentation", "{AE51E545-C970-4DA7-BCFF-7BFD774CE3A2}"
 	ProjectSection(SolutionItems) = preProject
 		NotesFromDeveloper.txt = NotesFromDeveloper.txt
+		Todo.txt = Todo.txt
 	EndProjectSection
 EndProject
 Global

@@ -6,17 +6,10 @@ using ClockPatience.Domain.Services;
 
 namespace ClockPatience.Application.Services
 {
-    public class GameService : IGameService
+    public class GameService(GameSessionService gameFactory, IGameRepository gameRepository) : IGameService
     {
-        private readonly GameSessionService _gameSessionService;
-        private readonly IGameRepository _gameRepository;
-        private Game? _currentGameSession;
-
-        public GameService(GameSessionService gameFactory, IGameRepository gameRepository)
-        {
-            _gameSessionService = gameFactory;
-            _gameRepository = gameRepository;
-        }
+        private readonly GameSessionService _gameSessionService = gameFactory;
+        private readonly IGameRepository _gameRepository = gameRepository;
 
 
         /// <summary>
@@ -24,8 +17,7 @@ namespace ClockPatience.Application.Services
         /// </summary>
         public void StartNewGame()
         {
-            _currentGameSession = _gameSessionService.StartNewGame();
-            _gameRepository.AddGame(_currentGameSession);
+            _gameSessionService.StartNewSession();
         }
 
         /// <summary>
@@ -34,7 +26,7 @@ namespace ClockPatience.Application.Services
         /// <param name="numberOfDecks">Number of decks to seed the current game session with</param>
         public List<DeckDTO> SeedDecks(int numberOfDecks)
         {
-            List<Deck> decks = _gameSessionService.SeedDecks(numberOfDecks);
+            List<Deck> decks = _gameSessionService.SeedGameInstances(numberOfDecks);
 
             List<DeckDTO> deckDTOs = [];
             foreach (Deck deck in decks)
@@ -51,23 +43,29 @@ namespace ClockPatience.Application.Services
         /// </summary>
         public void StopGame()
         {
-            _gameSessionService.StopGame();
-
-            if (_currentGameSession != null)
-            {
-                _gameRepository.SaveGameResult(_currentGameSession);
-            }
+            _gameSessionService.StopCurrentSession();
         }
 
         /// <summary>
-        /// Determines the outcome of the current game session.
+        /// Determines the outcome of all decks seeded into the game session.
         /// </summary>
-        public void DetermineGameOutcome()
+        public List<Tuple<int, CardDTO>> PlayGame()
         {
-            if (_currentGameSession != null)
+            List<Tuple<int, Card>> results = _gameSessionService.PlayGame();
+
+            List<Tuple<int, CardDTO>> resultDTOs = [];
+
+            foreach (Tuple<int, Card> result in results)
             {
-                _gameSessionService.PlayGame();
+                Card card = result.Item2;
+                CardDTO cardDTO = new(card);
+
+                Tuple<int, CardDTO> resultDTO = new(result.Item1, cardDTO);
+
+                resultDTOs.Add(resultDTO);
             }
+
+            return resultDTOs;
         }
     }
 }

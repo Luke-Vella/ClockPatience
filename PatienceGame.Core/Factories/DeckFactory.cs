@@ -1,6 +1,5 @@
 ﻿using ClockPatience.Domain.Entities;
 using ClockPatience.Domain.ValueObjects;
-using PatienceGame.Entities;
 
 namespace ClockPatience.Domain.Factories
 {
@@ -13,7 +12,7 @@ namespace ClockPatience.Domain.Factories
         /// Creates a full deck of cards with every possiblity accounted for.
         /// </summary>
         /// <returns>A full deck of cards, with optional jokers.</returns>
-        public Deck CreateStandard(bool includeJokers = false)
+        public static Deck CreateStandard(bool includeJokers = false)
         {
             var cards = new List<Card>();
             var suits = new[] { Suit.Hearts, Suit.Diamonds, Suit.Clubs, Suit.Spades };
@@ -25,12 +24,11 @@ namespace ClockPatience.Domain.Factories
 
             if (includeJokers)
             {
-                cards.Add(new Card(new Suit("Joker"), new Rank("Joker")));
-                cards.Add(new Card(new Suit("Joker"), new Rank("Joker")));
+                cards.Add(new Card(new Suit("Joker", "Joker"), new Rank("Joker", "Joker")));
+                cards.Add(new Card(new Suit("Joker", "Joker"), new Rank("Joker", "Joker")));
             }
 
             var deck = new Deck(cards);
-            deck.Shuffle();
 
             return deck;
         }

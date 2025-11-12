@@ -7,20 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClockPatience.Application.DTOs
 {
-    public class DeckDTO
+    public class DeckDTO(Deck deck, int deckNumber)
     {
-        public DeckDTO(Deck deck, int deckNumber)
-        {
-            DeckNumber = deckNumber;
-            Cards = [.. deck.Cards.Select(card => new CardDTO
-            {
-                Suit = card.Suit.Value,
-                Rank = card.Rank.Value,
-                Name = card.Name
-            })];
-        }
-
-        public int DeckNumber { get; set; }
-        public List<CardDTO> Cards { get; set; } = [];
+        public int DeckNumber { get; set; } = deckNumber;
+        public List<CardDTO> Cards { get; set; } = [.. deck.Cards.Select(card => new CardDTO(card))];
     }
 }

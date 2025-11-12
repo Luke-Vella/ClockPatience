@@ -228,5 +228,24 @@ namespace ClockPatience.ConsoleApp
             if (includeEmptyLineAfter)
                 Console.WriteLine();
         }
+
+        internal static void DisplayGameResultsToUser(List<Tuple<int, CardDTO>> results, ILocalizationProvider loc)
+        {
+            Console.WriteLine(loc.Get("GAME_RESULT_MESSAGE"));
+
+            for(int i=0; i< results.Count; i++)
+            {
+                int amountOfMoves = results[i].Item1;
+                CardDTO? cardDTO = results[i].Item2;
+                if (amountOfMoves == 52)
+                {
+                    Console.WriteLine(string.Format(loc.Get("DECK_RESULT_WON"), i+1, amountOfMoves, cardDTO.Value));
+                }
+                else
+                {
+                    Console.WriteLine(string.Format(loc.Get("DECK_RESULT_LOST"), i+1, amountOfMoves, cardDTO.Value));
+                }
+            }
+        }
     }
 }

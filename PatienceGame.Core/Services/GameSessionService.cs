@@ -1,39 +1,49 @@
 ﻿using ClockPatience.Domain.Entities;
 using ClockPatience.Domain.Factories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ClockPatience.Domain.ValueObjects;
 
 namespace ClockPatience.Domain.Services
 {
     public class GameSessionService
     {
-        private Game _game;
+        private List<ClockSolitaireGame> _gameInstancesToBePlayed;
 
         public GameSessionService()
         {
-            _game = new Game();
+            _gameInstancesToBePlayed = [];
         }
 
-        public Game StartNewGame()
+        public void StartNewSession()
         {
-            _game = new Game();
-
-            return _game;
+            _gameInstancesToBePlayed = [];
         }
 
-        public List<Deck> SeedDecks(int numberOfDecks)
+        public void StopCurrentSession()
         {
-            DeckFactory deckFactory = new();
-            for (int i = 0; i < numberOfDecks; i++)
+            _gameInstancesToBePlayed = [];
+        }
+
+        public List<Deck> SeedGameInstances(int amountOfDecks)
+        {
+            for (int i = 0; i < amountOfDecks; i++)
             {
-                var deck = deckFactory.CreateStandard();
-                _game.AddDeck(deck);
+                ClockSolitaireGame game = new();
+                _gameInstancesToBePlayed.Add(game);
             }
 
-            return _game.Decks;
+            return [.. _gameInstancesToBePlayed.Select(game => game.Deck)];  
+        }
+
+        public List<Tuple<int, Card>> PlayGame()
+        {
+            List<Tuple<int, Card>> results = [];
+            for (int i = 0; i < _gameInstancesToBePlayed.Count; i++)
+            {
+                Tuple<int, Card> result = _gameInstancesToBePlayed[i].Play();
+                results.Add(result);
+            }
+
+            return results;
         }
     }
 }

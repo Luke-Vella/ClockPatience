@@ -1,5 +1,4 @@
-﻿using PatienceGame.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +16,11 @@ namespace ClockPatience.Domain.Entities
             _cards.AddRange(cards);
         }
 
+        public void Reset()
+        {
+            _cards.Clear();
+        }
+
         public void Shuffle(Random? random = null)
         {
             random ??= Random.Shared;
@@ -27,17 +31,24 @@ namespace ClockPatience.Domain.Entities
             }
         }
 
-        public Card DealCard()
+        public Card? DealCard()
         {
             if (_cards.Count == 0)
             {
-                throw new InvalidOperationException("No cards left in the deck to deal.");
+                return null;
             }
 
-            Card dealtCard = _cards[_cards.Count - 1];
-            _cards.RemoveAt(_cards.Count - 1);
+            Card dealtCard = _cards[0];
             
             return dealtCard;
+        }
+
+        public void RemoveCard(Card card)
+        {
+            if (!_cards.Remove(card))
+            {
+                throw new InvalidOperationException("The specified card is not in the deck.");
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ClockPatience.ConsoleApp
     {
         private static ServiceProvider _serviceProvider = null!;
         private static ILocalizationProvider _loc = null!;
-        private static IGameService _gameService = null!;
+        private static GameService _gameService = null!;
 
         /// <summary>
         /// Entry point. Program starts here.
@@ -61,6 +61,10 @@ namespace ClockPatience.ConsoleApp
             }
 
             GameConsoleUI.PromptUserToReviewDecks(_loc);
+
+            List<Tuple<int, CardDTO>> results = _gameService.PlayGame();
+
+            GameConsoleUI.DisplayGameResultsToUser(results, _loc);
         }
     }
 }

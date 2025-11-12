@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClockPatience.Domain.ValueObjects
 {
-    public readonly record struct Suit(string Value)
+    public readonly record struct Suit(string Value, string Description)
     {
-        public static readonly Suit Hearts = new("H");
-        public static readonly Suit Diamonds = new("D");
-        public static readonly Suit Clubs = new("C");
-        public static readonly Suit Spades = new("S");
+        public static readonly Suit Hearts = new("H", "Hearts");
+        public static readonly Suit Diamonds = new("D", "Diamonds");
+        public static readonly Suit Clubs = new("C", "Clubs");
+        public static readonly Suit Spades = new("S", "Spades");
 
         public override string ToString() => Value;
     }

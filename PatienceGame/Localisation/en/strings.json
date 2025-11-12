@@ -10,5 +10,8 @@
   "SHOWING_ALL_DECKS_MESSAGE": "You will now be shown all decks arranged in four lines of 13 cards, each card separated by a single blank space.",
   "DECKS_ RESHUFFLE_INSTRUCTION": "If you are unhappy with the way the decks are arranged, type 'reshuffle' followed by the deck you wish to reshuffle (e.g. reshuffle 2). Otherwise, press enter to continue.",
   "SEEDED_DECKS_MESSAGE": "Seeded decks:",
+  "GAME_RESULT_MESSAGE": "Outputting game results below:",
+  "DECK_RESULT_WON": "Deck {0}: {1} {2} - WIN!",
+  "DECK_RESULT_LOST": "Deck {0}: {1} {2} - LOSS",
   "EXIT_PROMPT": "Press any key to exit."
 }

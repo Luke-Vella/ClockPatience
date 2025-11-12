@@ -1,0 +1,9 @@
+- proper encapsulation in entities
+- unit test library
+- finish clock patience game implementation
+- spruce up UI project
+- add documentation
+- reshuffle functionality
+- Clean up unused references and code
+- Check that sample input can be inputted
+- Flesh out repo usage
