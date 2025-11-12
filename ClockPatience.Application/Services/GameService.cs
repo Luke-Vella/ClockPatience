@@ -1,11 +1,10 @@
 ﻿using ClockPatience.Application.DTOs;
-using ClockPatience.Application.Interfaces;
 using ClockPatience.Domain.Entities;
 using ClockPatience.Domain.Interfaces;
 
 namespace ClockPatience.Application.Services
 {
-    public class GameService(IGameRepository gameRepository) : IGameService
+    public class GameService(IGameRepository gameRepository)
     {
         private List<ClockSolitaireGame> games = [];
 
@@ -21,34 +20,29 @@ namespace ClockPatience.Application.Services
         /// Takes in the number of decks to seed for the game.
         /// </summary>
         /// <param name="numberOfDecks">Number of decks to seed the current game session with</param>
-        public List<DeckDTO> SeedInput(int numberOfDecks, bool useCaseStudy = false)
+        public List<DeckDTO> SeedInput(int numberOfDecks)
         {
             List<Deck> decks = [];
             
-            if (useCaseStudy)
+            for (int i = 0; i < numberOfDecks; i++)
             {
-                ClockSolitaireGame game = new(true);
+                ClockSolitaireGame game = new();
                 decks.Add(game.Input);
                 games.Add(game);
             }
-            else
-            {
-                for (int i = 0; i < numberOfDecks; i++)
-                {
-                    ClockSolitaireGame game = new();
-                    decks.Add(game.Input);
-                    games.Add(game);
-                }
-            }
 
-            List<DeckDTO> deckDTOs = [];
-            foreach (Deck deck in decks)
-            {
-                DeckDTO deckDTO = new(deck, decks.IndexOf(deck) + 1);
-                deckDTOs.Add(deckDTO);
-            }
+            return mapDeckToDTO(decks);
+        }
 
-            return deckDTOs;
+        public List<DeckDTO> SeedInput()
+        {
+            List<Deck> decks = [];
+
+            ClockSolitaireGame game = new(true);
+            decks.Add(game.Input);
+            games.Add(game);
+
+            return mapDeckToDTO(decks);
         }
 
         /// <summary>
@@ -75,7 +69,21 @@ namespace ClockPatience.Application.Services
                 resultDTOs.Add(resultDTO);
             }
 
+            gameRepository.SaveGameResult(results);
+
             return resultDTOs;
+        }
+
+        public static List<DeckDTO> mapDeckToDTO(List<Deck> decks)
+        {
+            List<DeckDTO> deckDTOs = [];
+            foreach (Deck deck in decks)
+            {
+                DeckDTO deckDTO = new(deck, decks.IndexOf(deck) + 1);
+                deckDTOs.Add(deckDTO);
+            }
+
+            return deckDTOs;
         }
     }
 }

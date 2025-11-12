@@ -1,12 +1,9 @@
 ﻿// Simple terminal input scaffold for PatienceGame
 using ClockPatience.Application.DTOs;
-using ClockPatience.Application.Interfaces;
 using ClockPatience.Application.Services;
 using ClockPatience.ConsoleApp.Localisation;
-using ClockPatience.Domain.Factories;
 using ConsoleApp.Localization;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 
 namespace ClockPatience.ConsoleApp

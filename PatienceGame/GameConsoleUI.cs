@@ -2,12 +2,6 @@
 using ClockPatience.ConsoleApp.Helpers;
 using ClockPatience.ConsoleApp.Localisation;
 using ClockPatience.ConsoleApp.Resources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClockPatience.ConsoleApp
 {

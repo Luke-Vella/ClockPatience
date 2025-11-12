@@ -14,5 +14,7 @@ namespace ClockPatience.Infrastructure.Repositories
         {
             // Flesh out with actual data persistence logic later
         }
+
+        // Additional repository methods to store game data can be added here as needed
     }
 }
